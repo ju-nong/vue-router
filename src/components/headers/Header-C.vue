@@ -20,8 +20,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
     background-color: #00ff00;
+
+    span {
+        position: absolute;
+        font-size: 32px;
+        right: 10px;
+        top: 10px;
+    }
 }
 </style>

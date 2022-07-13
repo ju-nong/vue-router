@@ -10,23 +10,57 @@
 <script>
 import { Header, Tab, Footer } from "@components";
 
-import { reactive, computed } from "vue";
+import { reactive, ref, computed } from "vue";
 import { useRouteStore } from "@store/router";
-import router from "@router/index";
+import { useUserStore } from "@store/user";
+import { useRouter } from "vue-router";
+
+function chkPer(type, domain) {
+    console.log(type, domain);
+    if (type == "비") {
+        return !(domain == "Second" || domain == "Third");
+    }
+
+    if (type == "A" || type == "B") {
+        return !(domain == "Third" || domain == "Fourth");
+    }
+
+    return !(domain == "Second" || domain == "Fourth");
+}
 
 export default {
     name: "App",
     components: { Header, Tab, Footer },
     setup() {
         const meta = computed(() => useRouteStore());
-
-        router.beforeEach((to, from, next) => {
-            // console.log("To : ", to);
-            // console.log("from : ", from);
-            next();
+        const user = reactive({
+            store: useUserStore(),
+            type: computed(() => user.store.getUser),
         });
 
-        return { meta };
+        const router = useRouter();
+
+        router.beforeEach((to, from, next) => {
+            const toName = to.name; // 후 페이지
+            const fromName = from.name; // 전 페이지
+            const type = user.type;
+            let path = "/";
+
+            if (fromName != undefined) {
+                if (chkPer(type, toName) && chkPer(type, fromName)) {
+                    path = null;
+                    console.log("지나가세요");
+                } else {
+                    console.log("막음");
+                }
+            } else {
+                path = null;
+                console.log(toName, fromName);
+            }
+            next(path);
+        });
+
+        return { meta, user };
     },
 };
 </script>
@@ -40,13 +74,10 @@ export default {
 }
 a {
     text-decoration: none;
-    color: #000;
+    color: $b;
 }
 #wrap {
     position: relative;
-}
-header {
-    text-align: center;
-    color: #fff;
+    width: 900px;
 }
 </style>
