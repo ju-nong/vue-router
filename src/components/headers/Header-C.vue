@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-    background-color: #00ff00;
+    background-color: $g;
 
     span {
         position: absolute;

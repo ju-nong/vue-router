@@ -2,8 +2,6 @@ import { defineStore } from "pinia";
 import { computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
-const _computed = (value) => computed(() => value);
-
 const useRouterStore = defineStore("router", {
     state: () => ({
         router: useRouter(),
@@ -25,7 +23,7 @@ const useRouterStore = defineStore("router", {
 function useRouteStore() {
     const store = useRouterStore();
     const route = store.getRoute;
-    return _computed(route.meta);
+    return { meta: computed(() => route.meta) };
 }
 
 export default useRouterStore;

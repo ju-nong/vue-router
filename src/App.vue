@@ -1,9 +1,11 @@
 <template>
     <div id="wrap">
         <Header />
-        <router-view></router-view>
-        <Tab v-if="!meta.value.isHideTab" />
-        <Footer v-if="!meta.value.isHideFooter" />
+        <p id="pageTitle">{{ meta.headerTitle }}</p>
+        <router-view> </router-view>
+        <Tab v-if="!meta.isHideTab" />
+        <Footer v-if="!meta.isHideFooter" />
+        {{ meta }}
     </div>
 </template>
 
@@ -32,7 +34,7 @@ export default {
     name: "App",
     components: { Header, Tab, Footer },
     setup() {
-        const meta = computed(() => useRouteStore());
+        const { meta } = useRouteStore();
         const user = reactive({
             store: useUserStore(),
             type: computed(() => user.store.getUser),
@@ -44,18 +46,15 @@ export default {
             const toName = to.name; // 후 페이지
             const fromName = from.name; // 전 페이지
             const type = user.type;
+            const noPer = to.meta.noPer;
             let path = "/";
 
             if (fromName != undefined) {
-                if (chkPer(type, toName) && chkPer(type, fromName)) {
+                if (!noPer.includes(user.type)) {
                     path = null;
-                    console.log("지나가세요");
-                } else {
-                    console.log("막음");
                 }
             } else {
                 path = null;
-                console.log(toName, fromName);
             }
             next(path);
         });
@@ -76,8 +75,17 @@ a {
     text-decoration: none;
     color: $b;
 }
+button {
+    cursor: pointer;
+    background-color: $tr;
+}
 #wrap {
     position: relative;
     width: 900px;
+}
+#pageTitle {
+    text-align: right;
+    font-weight: bold;
+    font-size: 26px;
 }
 </style>

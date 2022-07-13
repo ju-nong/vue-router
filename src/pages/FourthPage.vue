@@ -1,6 +1,4 @@
-<template>
-    <p>4번 페이지</p>
-</template>
+<template></template>
 
 <script>
 export default {};

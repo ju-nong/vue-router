@@ -8,8 +8,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
-    background-color: #ff0000;
+    background-color: $r;
 }
 </style>

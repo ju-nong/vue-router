@@ -13,10 +13,10 @@ export default { name: "Footer" };
 
 <style lang="scss" scoped>
 footer {
-    width: 900px;
-    bottom: 50vh;
+    padding-top: 30px;
     text-align: center;
-    position: fixed;
+    font-size: 26px;
+    font-weight: bold;
     > a {
         margin: 10px;
     }

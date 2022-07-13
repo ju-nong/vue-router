@@ -1,6 +1,5 @@
 <template>
-    <p>2번 페이지</p>
-    <First v-if="meta.value.headerTitle == '1-1 페이지'" />
+    <First v-if="meta.headerTitle == '1-1 페이지'" />
     <router-view></router-view>
 </template>
 
@@ -14,11 +13,18 @@ export default {
     name: "SecondPage",
     components: { First },
     setup() {
-        //const user = useUserStore();
-        const meta = computed(() => useRouteStore());
+        const { meta } = useRouteStore();
         return { meta };
     },
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+a {
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 33px;
+}
+</style>

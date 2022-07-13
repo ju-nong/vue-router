@@ -1,6 +1,6 @@
 <template>
     <p>메타 {{ meta }}</p>
-    <B v-if="meta.value.headerType == 'back'" />
+    <B v-if="meta.headerType == 'back'" />
     <A v-else-if="user.getUser == '비'" />
     <C v-else />
 </template>
@@ -17,7 +17,7 @@ export default {
     components: { A, B, C },
     setup() {
         const user = useUserStore();
-        const meta = computed(() => useRouteStore());
+        const { meta } = useRouteStore();
 
         return { user, meta };
     },

@@ -33,14 +33,26 @@ export default {
 
 <style lang="scss">
 #view {
-    width: 300px;
+    width: 400px;
     height: 200px;
+    margin-top: 30px;
     border: 1px solid #eee;
+    text-align: center;
+    > p {
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 200px;
+    }
 }
 #btnBox {
+    width: 400px;
+    border: 1px solid #eee;
     text-align: center;
+    display: flex;
     button {
-        margin: 10px;
+        font-size: 20px;
+        width: 33.333%;
+        border: 1px solid #eee;
     }
 }
 </style>

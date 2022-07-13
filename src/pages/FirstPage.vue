@@ -1,16 +1,16 @@
 <template>
-    <p>1번 페이지</p>
     <select name="" @change="choiseUser" v-model="selected">
         <option value="비">비회원</option>
         <option value="A">A 회원</option>
         <option value="B">B 회원</option>
         <option value="VIP">VIP 회원</option>
     </select>
-
-    <Dog v-if="user.type == '비' || user.type == 'A'" />
-    <Cat v-if="user.type == '비' || user.type == 'B'" />
-    <Lion v-if="user.type == 'A' || user.type == 'VIP'" />
-    <Labbit v-if="user.type == 'B' || user.type == 'VIP'" />
+    <div id="animals">
+        <Dog v-if="user.type == '비' || user.type == 'A'" />
+        <Cat v-if="user.type == '비' || user.type == 'B'" />
+        <Lion v-if="user.type == 'A' || user.type == 'VIP'" />
+        <Labbit v-if="user.type == 'B' || user.type == 'VIP'" />
+    </div>
 </template>
 
 <script>
@@ -41,4 +41,23 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+select {
+    border: 2px solid $b;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#animals {
+    display: flex;
+    padding-top: 100px;
+    > p {
+        width: 150px;
+        line-height: 150px;
+        text-align: center;
+        border: 2px solid $b;
+        border-radius: 10px;
+    }
+}
+</style>
