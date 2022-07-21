@@ -1,13 +1,21 @@
 <template>
     <div id="view">
-        <First v-show="show == 1" />
-        <Second v-show="show == 2" />
-        <Third v-show="show == 3" />
-    </div>
-    <div id="btnBox">
-        <button @click="view(1)">2-1 탭</button>
-        <button @click="view(2)">2-2 탭</button>
-        <button @click="view(3)">2-3 탭</button>
+        <div id="area">
+            <First v-show="show == 1" />
+            <Second v-show="show == 2" />
+            <Third v-show="show == 3" />
+        </div>
+        <div id="btnBox">
+            <button :class="show == 1 ? `active` : ``" @click="view(1)">
+                2-1 탭
+            </button>
+            <button :class="show == 2 ? `active` : ``" @click="view(2)">
+                2-2 탭
+            </button>
+            <button :class="show == 3 ? `active` : ``" @click="view(3)">
+                2-3 탭
+            </button>
+        </div>
     </div>
 </template>
 
@@ -33,26 +41,37 @@ export default {
 
 <style lang="scss">
 #view {
-    width: 400px;
-    height: 200px;
-    margin-top: 30px;
-    border: 1px solid #eee;
-    text-align: center;
-    > p {
-        font-size: 22px;
-        font-weight: bold;
-        line-height: 200px;
+    width: 600px;
+    border: 1px solid $b;
+    #area {
+        text-align: center;
+        > p {
+            line-height: 300px;
+            font-size: 32px;
+            font-weight: bold;
+        }
     }
-}
-#btnBox {
-    width: 400px;
-    border: 1px solid #eee;
-    text-align: center;
-    display: flex;
-    button {
-        font-size: 20px;
-        width: 33.333%;
-        border: 1px solid #eee;
+    #btnBox {
+        text-align: center;
+        display: flex;
+        button {
+            font-size: 20px;
+            width: 33.333%;
+            border: 1px solid $b;
+            padding: 10px 0px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: $b;
+            color: $w;
+        }
+        .active {
+            font-weight: bold;
+            color: $bl;
+        }
+        .active:hover {
+            color: $bl;
+        }
     }
 }
 </style>

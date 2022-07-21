@@ -5,7 +5,6 @@
         <router-view> </router-view>
         <Tab v-if="!meta.isHideTab" />
         <Footer v-if="!meta.isHideFooter" />
-        {{ meta }}
     </div>
 </template>
 

@@ -9,18 +9,18 @@
         <Dog v-if="user.type == '비' || user.type == 'A'" />
         <Cat v-if="user.type == '비' || user.type == 'B'" />
         <Lion v-if="user.type == 'A' || user.type == 'VIP'" />
-        <Labbit v-if="user.type == 'B' || user.type == 'VIP'" />
+        <Rabbit v-if="user.type == 'B' || user.type == 'VIP'" />
     </div>
 </template>
 
 <script>
-import { Dog, Cat, Lion, Labbit } from "@animals";
+import { Dog, Cat, Lion, Rabbit } from "@animals";
 
 import { reactive, computed, ref, onUpdated, onMounted } from "vue";
 import { useUserStore } from "@store/user";
 export default {
     name: "FirstPage",
-    components: { Dog, Cat, Lion, Labbit },
+    components: { Dog, Cat, Lion, Rabbit },
     setup() {
         const user = reactive({
             store: useUserStore(),
@@ -52,12 +52,16 @@ select {
 #animals {
     display: flex;
     padding-top: 100px;
-    > p {
+    .animal {
         width: 150px;
         line-height: 150px;
         text-align: center;
-        border: 2px solid $b;
         border-radius: 10px;
+        background-size: cover;
+        background-position: center center;
+        color: $w;
+        font-size: 22px;
+        font-weight: bold;
     }
 }
 </style>

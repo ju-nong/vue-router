@@ -1,5 +1,4 @@
 <template>
-    <p>메타 {{ meta }}</p>
     <B v-if="meta.headerType == 'back'" />
     <A v-else-if="user.getUser == '비'" />
     <C v-else />

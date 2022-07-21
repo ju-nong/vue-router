@@ -1,6 +1,6 @@
 <template>
     <First v-if="meta.headerTitle == '1-1 페이지'" />
-    <router-view></router-view>
+    <router-view class="subLink"></router-view>
 </template>
 
 <script>
@@ -19,12 +19,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-a {
+<style lang="scss">
+.subLink {
     display: block;
-    margin-top: 50px;
+    margin-top: 170px;
     text-align: center;
     font-weight: bold;
     font-size: 33px;
+}
+.subTitle {
+    text-align: center;
+    padding-top: 100px;
 }
 </style>
