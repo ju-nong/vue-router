@@ -6,10 +6,10 @@
         <option value="VIP">VIP 회원</option>
     </select>
     <div id="animals">
-        <Dog v-if="user.type == '비' || user.type == 'A'" />
-        <Cat v-if="user.type == '비' || user.type == 'B'" />
-        <Lion v-if="user.type == 'A' || user.type == 'VIP'" />
-        <Rabbit v-if="user.type == 'B' || user.type == 'VIP'" />
+        <component
+            v-for="(animal, index) in animals[selected]"
+            :is="animal"
+        ></component>
     </div>
 </template>
 
@@ -22,21 +22,23 @@ export default {
     name: "FirstPage",
     components: { Dog, Cat, Lion, Rabbit },
     setup() {
-        const user = reactive({
-            store: useUserStore(),
-            type: computed(() => user.store.getUser),
-        });
+        const user = useUserStore();
 
-        const selected = ref(user.type);
+        const animals = {
+            비: ["Dog", "Cat"],
+            A: ["Dog", "Lion"],
+            B: ["Cat", "Rabbit"],
+            VIP: ["Lion", "Rabbit"],
+        };
 
-        //const getType = computed(() => user.store.getUser);
+        const selected = ref(user.getUser);
 
         const choiseUser = (event) => {
             const val = event.target.value;
-            user.store.setUser(val);
+            user.setUser(val);
         };
 
-        return { choiseUser, user, selected };
+        return { user, animals, selected, choiseUser };
     },
 };
 </script>

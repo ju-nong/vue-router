@@ -1,19 +1,16 @@
 <template>
     <div id="view">
         <div id="area">
-            <First v-show="show == 1" />
-            <Second v-show="show == 2" />
-            <Third v-show="show == 3" />
+            <component :is="currentTabComponent"></component>
         </div>
         <div id="btnBox">
-            <button :class="show == 1 ? `active` : ``" @click="view(1)">
-                2-1 탭
-            </button>
-            <button :class="show == 2 ? `active` : ``" @click="view(2)">
-                2-2 탭
-            </button>
-            <button :class="show == 3 ? `active` : ``" @click="view(3)">
-                2-3 탭
+            <button
+                v-for="(tab, index) in tabs"
+                :key="index"
+                :class="{ active: currentTab == tab.component }"
+                @click="currentTab = tab.component"
+            >
+                {{ tab.name }}
             </button>
         </div>
     </div>
@@ -22,19 +19,25 @@
 <script>
 import { First, Second, Third } from "@tabs/Third";
 
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 export default {
     name: "Tab",
     components: { First, Second, Third },
     setup() {
-        const show = ref(1);
+        const tabs = [
+            { name: "2-1 탭", component: "First" },
+            { name: "2-2 탭", component: "Second" },
+            { name: "2-3 탭", component: "Third" },
+        ];
 
-        const view = (tabNum) => {
-            show.value = tabNum;
-        };
+        const currentTab = ref("First");
 
-        return { show, view };
+        const currentTabComponent = computed(() => {
+            return currentTab.value;
+        });
+
+        return { tabs, currentTab, currentTabComponent };
     },
 };
 </script>
