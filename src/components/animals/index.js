@@ -1,4 +1,4 @@
-export { default as Dog } from "./TheDog.vue";
-export { default as Cat } from "./TheCat.vue";
-export { default as Lion } from "./TheLion.vue";
-export { default as Rabbit } from "./TheRabbit.vue";
+export { default as TheDog } from "./TheDog.vue";
+export { default as TheCat } from "./TheCat.vue";
+export { default as TheLion } from "./TheLion.vue";
+export { default as TheRabbit } from "./TheRabbit.vue";

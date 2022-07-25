@@ -5,15 +5,14 @@ const meta = {
     noPer: ["비", "VIP"],
 };
 
-const subPageNames = ["Second", "Third", "Fourth", "Fifth"];
+const subPageNames = ["B", "C", "D", "E"];
 const child = [];
 for (let i = 0; i <= subPageNames.length; i++) {
     const num = i + 2;
     child.push({
         path: `${num}`,
         name: `1-${num}`,
-        component: () =>
-            import(`@subPages/Second/${subPageNames[i]}SubPage.vue`),
+        component: () => import(`@subPages/PageB/SubPage${subPageNames[i]}`),
         meta: {
             headerTitle: `1-${num} 페이지`,
             ...meta,
@@ -23,10 +22,10 @@ for (let i = 0; i <= subPageNames.length; i++) {
 
 export default [
     {
-        path: "/second",
-        alias: ["/second/1"],
-        name: "Second",
-        component: () => import("@pages/SecondPage.vue"),
+        path: "/B",
+        alias: ["/B/1"],
+        name: "PageB",
+        component: () => import("@pages/PageB"),
         meta: {
             headerTitle: "1-1 페이지",
             ...meta,

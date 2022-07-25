@@ -1,9 +1,9 @@
 <template>
     <div id="view">
-        <div id="area">
-            <component :is="currentTabComponent"></component>
+        <div class="area tc">
+            <component :is="currentTabComponent" class="fwb"></component>
         </div>
-        <div id="btnBox">
+        <div id="btnBox" class="tc">
             <button
                 v-for="(tab, index) in tabs"
                 :key="index"
@@ -17,21 +17,21 @@
 </template>
 
 <script>
-import { First, Second, Third } from "@tabs/Third";
+import { TabA, TabB, TabC } from "@tabs/PageC";
 
 import { ref, computed } from "vue";
 
 export default {
-    name: "Tab",
-    components: { First, Second, Third },
+    name: "TheTab",
+    components: { TabA, TabB, TabC },
     setup() {
         const tabs = [
-            { name: "2-1 탭", component: "First" },
-            { name: "2-2 탭", component: "Second" },
-            { name: "2-3 탭", component: "Third" },
+            { name: "2-1 탭", component: "TabA" },
+            { name: "2-2 탭", component: "TabB" },
+            { name: "2-3 탭", component: "TabC" },
         ];
 
-        const currentTab = ref("First");
+        const currentTab = ref("TabA");
 
         const currentTabComponent = computed(() => {
             return currentTab.value;
@@ -46,16 +46,13 @@ export default {
 #view {
     width: 600px;
     border: 1px solid $b;
-    #area {
-        text-align: center;
+    .area {
         > p {
             line-height: 300px;
             font-size: 32px;
-            font-weight: bold;
         }
     }
     #btnBox {
-        text-align: center;
         display: flex;
         button {
             font-size: 20px;

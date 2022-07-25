@@ -1,22 +1,20 @@
 <template>
-    <footer>
-        <router-link to="/first">1</router-link>
-        <router-link to="/second">2</router-link>
-        <router-link to="/third">3</router-link>
-        <router-link to="/fourth">4</router-link>
+    <footer class="tc fwb">
+        <router-link to="/A">1</router-link>
+        <router-link to="/B">2</router-link>
+        <router-link to="/C">3</router-link>
+        <router-link to="/D">4</router-link>
     </footer>
 </template>
 
 <script>
-export default { name: "Footer" };
+export default { name: "TheFooter" };
 </script>
 
 <style lang="scss" scoped>
 footer {
     padding-top: 30px;
-    text-align: center;
     font-size: 26px;
-    font-weight: bold;
     > a {
         margin: 10px;
     }

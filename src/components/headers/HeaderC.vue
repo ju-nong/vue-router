@@ -9,7 +9,7 @@
 import { reactive } from "vue";
 import { useUserStore } from "@store/user";
 export default {
-    name: "Header-C",
+    name: "HeaderC",
     setup() {
         const state = reactive({
             user: useUserStore(),

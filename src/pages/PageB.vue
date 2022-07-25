@@ -1,17 +1,19 @@
 <template>
-    <First v-if="meta.headerTitle == '1-1 페이지'" />
-    <router-view class="subLink"></router-view>
+    <div class="subPage tc fwb">
+        <SubPageA v-if="meta.headerTitle == '1-1 페이지'" />
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import { First } from "@subPages/Second";
+import { SubPageA } from "@subPages/PageB";
 
 import { computed } from "vue";
 import { useUserStore } from "@store/user";
 import { useRouteStore } from "@store/router";
 export default {
-    name: "SecondPage",
-    components: { First },
+    name: "PageB",
+    components: { SubPageA },
     setup() {
         const { meta } = useRouteStore();
         return { meta };
@@ -20,11 +22,9 @@ export default {
 </script>
 
 <style lang="scss">
-.subLink {
+.subPage a {
     display: block;
     margin-top: 170px;
-    text-align: center;
-    font-weight: bold;
     font-size: 33px;
 }
 .subTitle {

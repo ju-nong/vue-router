@@ -12,7 +12,7 @@ import { useUserStore } from "@store/user";
 import { useRouteStore } from "@store/router";
 
 export default {
-    name: "Header",
+    name: "TheHeader",
     components: { A, B, C },
     setup() {
         const user = useUserStore();

@@ -1,14 +1,13 @@
 <template>
-    <h1>Welcome, Guest!</h1>
+    <h1 class="tc">Welcome, Guest!</h1>
 </template>
 
 <script>
-export default {};
+export default { name: "PageD" };
 </script>
 
 <style scoped>
 h1 {
-    text-align: center;
     padding-top: 100px;
 }
 </style>

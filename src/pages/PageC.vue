@@ -1,7 +1,7 @@
 <template></template>
 
 <script>
-export default { name: "ThirdPage", components: {} };
+export default { name: "PageC", components: {} };
 </script>
 
 <style></style>

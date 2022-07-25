@@ -1,9 +1,9 @@
 <template>
-    <p>2-2 탭</p>
+    <p>2-1 탭</p>
 </template>
 
 <script>
-export default {};
+export default { name: "TabA" };
 </script>
 
 <style></style>

@@ -1,11 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
 import { useUserStore } from "@store/user";
 
-import { First, Second, Third, Fourth } from "@routes";
+import { PageA, PageB, PageC, PageD } from "@routes";
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: [...First, ...Second, ...Third, ...Fourth],
+    routes: [...PageA, ...PageB, ...PageC, ...PageD],
 });
 
 router.beforeEach((to, from, next) => {

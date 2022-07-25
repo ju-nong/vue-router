@@ -1,6 +1,6 @@
-const first = {
-    name: "First",
-    component: () => import("@pages/FirstPage.vue"),
+const PageA = {
+    name: "PageA",
+    component: () => import("@pages/PageA"),
     meta: {
         headerType: "all",
         headerTitle: "1번 페이지",
@@ -13,7 +13,7 @@ const first = {
 export default [
     {
         path: "/",
-        alias: ["/first"],
-        ...first,
+        alias: ["/A"],
+        ...PageA,
     },
 ];

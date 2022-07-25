@@ -1,8 +1,8 @@
 export default [
     {
-        path: "/third",
-        name: "Third",
-        component: () => import("@pages/ThirdPage.vue"),
+        path: "/C",
+        name: "PageC",
+        component: () => import("@pages/PageC"),
         meta: {
             headerTitle: "3번 페이지",
             headerType: "back",

@@ -1,15 +1,15 @@
 <template>
-    <div id="wrap">
-        <Header />
-        <p id="pageTitle">{{ meta.headerTitle }}</p>
+    <div class="wrap">
+        <TheHeader />
+        <p class="pageTitle fwb">{{ meta.headerTitle }}</p>
         <router-view> </router-view>
-        <Tab v-if="!meta.isHideTab" />
-        <Footer v-if="!meta.isHideFooter" />
+        <TheTab v-if="!meta.isHideTab" />
+        <TheFooter v-if="!meta.isHideFooter" />
     </div>
 </template>
 
 <script>
-import { Header, Tab, Footer } from "@components";
+import { TheHeader, TheTab, TheFooter } from "@components";
 
 import { reactive, ref, computed } from "vue";
 import { useRouteStore } from "@store/router";
@@ -18,7 +18,7 @@ import { useRouter } from "vue-router";
 
 export default {
     name: "App",
-    components: { Header, Tab, Footer },
+    components: { TheHeader, TheTab, TheFooter },
     setup() {
         const { meta } = useRouteStore();
 
@@ -42,13 +42,18 @@ button {
     cursor: pointer;
     background-color: $tr;
 }
-#wrap {
+.wrap {
     position: relative;
     width: 900px;
 }
-#pageTitle {
+.pageTitle {
     text-align: right;
-    font-weight: bold;
     font-size: 26px;
+}
+.fwb {
+    font-weight: bold;
+}
+.tc {
+    text-align: center;
 }
 </style>

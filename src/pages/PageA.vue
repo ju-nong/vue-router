@@ -1,5 +1,5 @@
 <template>
-    <select name="" @change="choiseUser" v-model="selected">
+    <select name="" @change="choiseUser" v-model="selected" class="fwb">
         <option value="비">비회원</option>
         <option value="A">A 회원</option>
         <option value="B">B 회원</option>
@@ -9,26 +9,27 @@
         <component
             v-for="(animal, index) in animals[selected]"
             :is="animal"
+            class="fwb tc"
         ></component>
     </div>
 </template>
 
 <script>
-import { Dog, Cat, Lion, Rabbit } from "@animals";
+import { TheDog, TheCat, TheLion, TheRabbit } from "@animals";
 
 import { reactive, computed, ref, onUpdated, onMounted } from "vue";
 import { useUserStore } from "@store/user";
 export default {
-    name: "FirstPage",
-    components: { Dog, Cat, Lion, Rabbit },
+    name: "PageA",
+    components: { TheDog, TheCat, TheLion, TheRabbit },
     setup() {
         const user = useUserStore();
 
         const animals = {
-            비: ["Dog", "Cat"],
-            A: ["Dog", "Lion"],
-            B: ["Cat", "Rabbit"],
-            VIP: ["Lion", "Rabbit"],
+            비: ["TheDog", "TheCat"],
+            A: ["TheDog", "TheLion"],
+            B: ["TheCat", "TheRabbit"],
+            VIP: ["TheLion", "TheRabbit"],
         };
 
         const selected = ref(user.getUser);
@@ -49,7 +50,6 @@ select {
     border-radius: 5px;
     padding: 5px;
     font-size: 18px;
-    font-weight: bold;
 }
 #animals {
     display: flex;
@@ -57,13 +57,11 @@ select {
     .animal {
         width: 150px;
         line-height: 150px;
-        text-align: center;
         border-radius: 10px;
         background-size: cover;
         background-position: center center;
         color: $w;
         font-size: 22px;
-        font-weight: bold;
     }
 }
 </style>

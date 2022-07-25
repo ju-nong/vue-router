@@ -1,8 +1,8 @@
 export default [
     {
-        path: "/fourth",
-        name: "Fourth",
-        component: () => import("@pages/FourthPage.vue"),
+        path: "/D",
+        name: "PageD",
+        component: () => import("@pages/PageD"),
         meta: {
             headerType: "back",
             headerTitle: "4번 페이지",
