@@ -2,7 +2,7 @@
     <div class="wrap">
         <TheHeader />
         <p class="pageTitle fwb">{{ meta.headerTitle }}</p>
-        <router-view> </router-view>
+        <router-view></router-view>
         <TheTab v-if="!meta.isHideTab" />
         <TheFooter v-if="!meta.isHideFooter" />
     </div>

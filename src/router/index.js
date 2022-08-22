@@ -19,7 +19,7 @@ router.beforeEach((to, from, next) => {
         if (!noPer.includes(user.getUser)) {
             path = null;
         } else {
-            alert("접근 권환이 없습니다.");
+            alert("접근 권한이 없습니다.");
         }
     } else {
         path = null;
